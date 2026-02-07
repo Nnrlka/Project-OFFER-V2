@@ -1,0 +1,30 @@
+.admin-panel-page {
+  min-height: 100vh;
+  background: var(--bg-primary);
+}
+
+.admin-access-denied {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  text-align: center;
+}
+
+.access-denied-content {
+  max-width: 500px;
+  margin: 0 auto;
+  padding: var(--spacing-2xl);
+}
+
+.denied-icon {
+  font-size: 4rem;
+  margin: var(--spacing-2xl) 0;
+  opacity: 0.5;
+}
+
+.denied-text {
+  color: var(--text-secondary);
+  line-height: 1.6;
+  margin-top: var(--spacing-lg);
+}

@@ -1,0 +1,504 @@
+.dispute-manager {
+  padding: var(--spacing-xl);
+  background: var(--bg-primary);
+  border-radius: var(--radius-lg);
+}
+
+.manager-header {
+  margin-bottom: var(--spacing-2xl);
+}
+
+.section-title {
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: var(--spacing-lg);
+}
+
+.header-controls {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: var(--spacing-lg);
+}
+
+.search-box {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-md);
+  padding: var(--spacing-sm) var(--spacing-md);
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  min-width: 300px;
+  flex: 1;
+}
+
+.search-box svg {
+  color: var(--text-muted);
+}
+
+.search-input {
+  flex: 1;
+  background: transparent;
+  border: none;
+  color: var(--text-primary);
+  font-size: 0.95rem;
+}
+
+.search-input:focus {
+  outline: none;
+}
+
+.filter-buttons {
+  display: flex;
+  gap: var(--spacing-sm);
+  flex-wrap: wrap;
+}
+
+.filter-btn {
+  padding: var(--spacing-sm) var(--spacing-lg);
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  color: var(--text-secondary);
+  font-weight: 500;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  white-space: nowrap;
+}
+
+.filter-btn:hover {
+  border-color: var(--color-primary);
+  color: var(--text-primary);
+}
+
+.filter-btn.active {
+  background: var(--gradient-primary);
+  border-color: transparent;
+  color: white;
+}
+
+/* Таблица споров */
+.disputes-table {
+  background: var(--bg-glass);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+}
+
+.table-header {
+  display: grid;
+  grid-template-columns: 100px 200px 200px 120px 200px 140px 150px 120px;
+  gap: var(--spacing-md);
+  padding: var(--spacing-lg);
+  background: var(--bg-secondary);
+  font-weight: 600;
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+  border-bottom: 1px solid var(--border-light);
+}
+
+.table-row {
+  display: grid;
+  grid-template-columns: 100px 200px 200px 120px 200px 140px 150px 120px;
+  gap: var(--spacing-md);
+  padding: var(--spacing-lg);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  transition: background var(--transition-fast);
+}
+
+.table-row:hover {
+  background: var(--bg-tertiary);
+}
+
+.table-row:last-child {
+  border-bottom: none;
+}
+
+/* Колонки таблицы */
+.col-id .dispute-id {
+  font-weight: 600;
+  color: var(--color-primary);
+  font-family: var(--font-mono);
+}
+
+.col-order .order-info {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xs);
+}
+
+.order-id {
+  font-weight: 600;
+  color: var(--text-primary);
+  font-size: 0.95rem;
+}
+
+.product-name {
+  color: var(--text-secondary);
+  font-size: 0.85rem;
+  line-height: 1.4;
+}
+
+.col-parties .parties-info {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xs);
+}
+
+.party {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-xs);
+  font-size: 0.9rem;
+}
+
+.party-label {
+  font-weight: 600;
+  color: var(--text-muted);
+  font-size: 0.75rem;
+  min-width: 20px;
+}
+
+.party.buyer .party-label {
+  color: var(--text-success);
+}
+
+.party.seller .party-label {
+  color: var(--text-warning);
+}
+
+.col-amount {
+  font-weight: 600;
+  color: var(--text-primary);
+  font-size: 1.1rem;
+}
+
+.col-reason .reason-text {
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+  line-height: 1.4;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+
+.col-status .status-badge {
+  display: inline-block;
+  padding: var(--spacing-xs) var(--spacing-sm);
+  border-radius: var(--radius-sm);
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.col-date {
+  color: var(--text-muted);
+  font-size: 0.85rem;
+}
+
+.col-actions .action-buttons {
+  display: flex;
+  gap: var(--spacing-xs);
+}
+
+/* Модальное окно спора */
+.dispute-details-modal {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-2xl);
+  max-height: 80vh;
+  overflow-y: auto;
+  padding-right: var(--spacing-sm);
+}
+
+.dispute-details-modal::-webkit-scrollbar {
+  width: 6px;
+}
+
+.dispute-details-modal::-webkit-scrollbar-track {
+  background: var(--bg-secondary);
+}
+
+.dispute-details-modal::-webkit-scrollbar-thumb {
+  background: var(--color-primary);
+  border-radius: var(--radius-full);
+}
+
+.dispute-info-section h3,
+.parties-section h4,
+.description-section h4,
+.evidence-section h4,
+.resolution-section h4 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: var(--spacing-lg);
+}
+
+.info-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: var(--spacing-lg);
+  background: var(--bg-secondary);
+  padding: var(--spacing-lg);
+  border-radius: var(--radius-md);
+}
+
+.info-item {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xs);
+}
+
+.info-item .label {
+  font-size: 0.875rem;
+  color: var(--text-muted);
+  font-weight: 500;
+}
+
+.info-item .value {
+  color: var(--text-primary);
+  font-weight: 500;
+  word-break: break-word;
+}
+
+/* Стороны спора */
+.parties-section {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--spacing-lg);
+}
+
+.party-card {
+  background: var(--bg-secondary);
+  border-radius: var(--radius-md);
+  padding: var(--spacing-lg);
+  border: 1px solid var(--border-light);
+}
+
+.party-card.buyer {
+  border-left: 4px solid var(--text-success);
+}
+
+.party-card.seller {
+  border-left: 4px solid var(--text-warning);
+}
+
+.party-card h4 {
+  margin-bottom: var(--spacing-md);
+}
+
+.party-info {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xs);
+}
+
+.party-name {
+  font-weight: 600;
+  color: var(--text-primary);
+  font-size: 1.1rem;
+}
+
+.party-email {
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+}
+
+/* Описание проблемы */
+.description-section {
+  background: var(--bg-secondary);
+  border-radius: var(--radius-md);
+  padding: var(--spacing-lg);
+}
+
+.description-content {
+  color: var(--text-secondary);
+  line-height: 1.6;
+  white-space: pre-wrap;
+}
+
+/* Доказательства */
+.evidence-section {
+  background: var(--bg-secondary);
+  border-radius: var(--radius-md);
+  padding: var(--spacing-lg);
+}
+
+.evidence-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--spacing-xl);
+}
+
+.evidence-list h5 {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: var(--spacing-md);
+}
+
+.files-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-sm);
+}
+
+.file-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--spacing-sm);
+  background: var(--bg-tertiary);
+  border-radius: var(--radius-md);
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+}
+
+.file-item svg {
+  margin-right: var(--spacing-sm);
+  color: var(--text-muted);
+}
+
+/* Принятие решения */
+.resolution-section {
+  background: var(--bg-secondary);
+  border-radius: var(--radius-md);
+  padding: var(--spacing-lg);
+}
+
+.resolution-options {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xl);
+}
+
+.option-group h5,
+.comment-group h5 {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: var(--spacing-md);
+}
+
+.option-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-md);
+}
+
+.option-buttons button {
+  width: 100%;
+  justify-content: flex-start;
+  padding: var(--spacing-lg);
+}
+
+.comment-textarea {
+  width: 100%;
+  padding: var(--spacing-md);
+  background: var(--bg-tertiary);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  color: var(--text-primary);
+  font-family: var(--font-sans);
+  font-size: 0.95rem;
+  resize: vertical;
+}
+
+.comment-textarea:focus {
+  outline: none;
+  border-color: var(--color-primary);
+}
+
+@media (max-width: 1400px) {
+  .table-header,
+  .table-row {
+    grid-template-columns: 80px 180px 180px 100px 150px 120px 130px 100px;
+    gap: var(--spacing-sm);
+    font-size: 0.85rem;
+  }
+}
+
+@media (max-width: 1200px) {
+  .table-header,
+  .table-row {
+    grid-template-columns: 80px 150px 150px 100px 120px 100px 120px 90px;
+  }
+  
+  .parties-section,
+  .evidence-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 1024px) {
+  .header-controls {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  
+  .search-box {
+    min-width: 100%;
+  }
+  
+  .table-header {
+    display: none;
+  }
+  
+  .table-row {
+    grid-template-columns: 1fr;
+    gap: var(--spacing-md);
+    padding: var(--spacing-xl);
+    margin-bottom: var(--spacing-lg);
+    background: var(--bg-secondary);
+    border-radius: var(--radius-md);
+  }
+  
+  .col-id,
+  .col-order,
+  .col-parties,
+  .col-amount,
+  .col-reason,
+  .col-status,
+  .col-date,
+  .col-actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: var(--spacing-sm) 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  }
+  
+  .col-id::before,
+  .col-order::before,
+  .col-parties::before,
+  .col-amount::before,
+  .col-reason::before,
+  .col-status::before,
+  .col-date::before,
+  .col-actions::before {
+    content: attr(data-label);
+    font-weight: 600;
+    color: var(--text-secondary);
+    margin-right: var(--spacing-md);
+    min-width: 120px;
+  }
+  
+  .col-id { data-label: 'ID спора'; }
+  .col-order { data-label: 'Заказ'; }
+  .col-parties { data-label: 'Стороны'; }
+  .col-amount { data-label: 'Сумма'; }
+  .col-reason { data-label: 'Причина'; }
+  .col-status { data-label: 'Статус'; }
+  .col-date { data-label: 'Дата'; }
+  .col-actions { data-label: 'Действия'; }
+  
+  .col-actions .action-buttons {
+    justify-content: flex-end;
+    flex: 1;
+  }
+}

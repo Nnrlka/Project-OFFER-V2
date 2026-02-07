@@ -1,0 +1,324 @@
+.sales-table {
+  background: var(--bg-glass);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  border: 1px solid var(--border-light);
+}
+
+.table-header {
+  background: var(--bg-secondary);
+  border-bottom: 1px solid var(--border-light);
+}
+
+.header-row {
+  display: grid;
+  grid-template-columns: 120px 200px 150px 120px 120px 120px 120px 150px 140px;
+  gap: var(--spacing-md);
+  padding: var(--spacing-lg);
+  font-weight: 600;
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+}
+
+.sort-btn {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-xs);
+  background: transparent;
+  border: none;
+  color: inherit;
+  font-weight: inherit;
+  cursor: pointer;
+  padding: 0;
+  transition: color var(--transition-fast);
+}
+
+.sort-btn:hover {
+  color: var(--text-primary);
+}
+
+.sort-btn svg {
+  font-size: 0.8rem;
+}
+
+.table-body {
+  max-height: 400px;
+  overflow-y: auto;
+}
+
+.table-body::-webkit-scrollbar {
+  width: 6px;
+}
+
+.table-body::-webkit-scrollbar-track {
+  background: var(--bg-secondary);
+}
+
+.table-body::-webkit-scrollbar-thumb {
+  background: var(--color-primary);
+  border-radius: var(--radius-full);
+}
+
+.table-row {
+  display: grid;
+  grid-template-columns: 120px 200px 150px 120px 120px 120px 120px 150px 140px;
+  gap: var(--spacing-md);
+  padding: var(--spacing-lg);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  transition: background var(--transition-fast);
+  align-items: center;
+}
+
+.table-row:hover {
+  background: var(--bg-tertiary);
+}
+
+.table-row:last-child {
+  border-bottom: none;
+}
+
+/* Колонки */
+.col-id .order-id {
+  font-family: var(--font-mono);
+  font-weight: 600;
+  color: var(--color-primary);
+  font-size: 0.9rem;
+}
+
+.col-product .product-info {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xs);
+}
+
+.product-name {
+  color: var(--text-primary);
+  font-weight: 500;
+  line-height: 1.4;
+}
+
+.delivery-time {
+  color: var(--text-muted);
+  font-size: 0.75rem;
+  background: var(--bg-tertiary);
+  padding: 2px 6px;
+  border-radius: var(--radius-sm);
+  display: inline-block;
+}
+
+.col-buyer .buyer-name {
+  color: var(--text-primary);
+  font-weight: 500;
+}
+
+.col-price .price-amount,
+.col-net .net-amount {
+  font-weight: 600;
+  color: var(--text-primary);
+  font-size: 1.1rem;
+}
+
+.col-fee {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.fee-amount {
+  color: var(--text-danger);
+  font-weight: 500;
+  font-size: 0.95rem;
+}
+
+.fee-percent {
+  color: var(--text-muted);
+  font-size: 0.75rem;
+}
+
+.col-status .status-info {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+}
+
+.status-icon {
+  font-size: 1rem;
+}
+
+.status-icon.completed {
+  color: var(--text-success);
+}
+
+.status-icon.pending {
+  color: var(--text-warning);
+}
+
+.status-icon.disputed {
+  color: var(--text-danger);
+}
+
+.status-text {
+  font-size: 0.85rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  padding: var(--spacing-xs) var(--spacing-sm);
+  border-radius: var(--radius-sm);
+}
+
+.status-completed {
+  background: rgba(16, 185, 129, 0.1);
+  color: #10b981;
+  border: 1px solid rgba(16, 185, 129, 0.3);
+}
+
+.status-pending {
+  background: rgba(245, 158, 11, 0.1);
+  color: #f59e0b;
+  border: 1px solid rgba(245, 158, 11, 0.3);
+}
+
+.status-disputed {
+  background: rgba(239, 68, 68, 0.1);
+  color: #ef4444;
+  border: 1px solid rgba(239, 68, 68, 0.3);
+}
+
+.col-date .date-info {
+  color: var(--text-secondary);
+  font-size: 0.85rem;
+}
+
+.col-actions .action-buttons {
+  display: flex;
+  gap: var(--spacing-xs);
+  flex-wrap: wrap;
+}
+
+/* Футер таблицы */
+.table-footer {
+  background: var(--bg-secondary);
+  border-top: 1px solid var(--border-light);
+  padding: var(--spacing-lg);
+}
+
+.summary-row {
+  display: grid;
+  grid-template-columns: 120px 200px 150px 120px 120px 120px 120px 150px 140px;
+  gap: var(--spacing-md);
+  align-items: center;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.summary-label {
+  grid-column: 1 / 4;
+  text-align: right;
+  padding-right: var(--spacing-md);
+}
+
+.summary-amount,
+.summary-fee,
+.summary-net {
+  font-size: 1.1rem;
+}
+
+.summary-fee {
+  color: var(--text-danger);
+}
+
+.summary-net {
+  color: var(--text-success);
+}
+
+.summary-empty {
+  /* Пустые ячейки для выравнивания */
+}
+
+/* Адаптивность */
+@media (max-width: 1400px) {
+  .header-row,
+  .table-row,
+  .summary-row {
+    grid-template-columns: 100px 180px 140px 100px 100px 100px 100px 140px 120px;
+    gap: var(--spacing-sm);
+    font-size: 0.85rem;
+  }
+}
+
+@media (max-width: 1200px) {
+  .header-row,
+  .table-row,
+  .summary-row {
+    grid-template-columns: 90px 160px 120px 90px 90px 90px 90px 130px 110px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .table-body {
+    max-height: 500px;
+  }
+  
+  .header-row {
+    display: none;
+  }
+  
+  .table-row {
+    grid-template-columns: 1fr;
+    gap: var(--spacing-md);
+    padding: var(--spacing-xl);
+    margin-bottom: var(--spacing-lg);
+    background: var(--bg-secondary);
+    border-radius: var(--radius-md);
+  }
+  
+  .col-id,
+  .col-product,
+  .col-buyer,
+  .col-price,
+  .col-fee,
+  .col-net,
+  .col-status,
+  .col-date,
+  .col-actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: var(--spacing-sm) 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  }
+  
+  .col-id::before,
+  .col-product::before,
+  .col-buyer::before,
+  .col-price::before,
+  .col-fee::before,
+  .col-net::before,
+  .col-status::before,
+  .col-date::before,
+  .col-actions::before {
+    content: attr(data-label);
+    font-weight: 600;
+    color: var(--text-secondary);
+    margin-right: var(--spacing-md);
+    min-width: 100px;
+  }
+  
+  .col-id { data-label: 'ID заказа'; }
+  .col-product { data-label: 'Товар'; }
+  .col-buyer { data-label: 'Покупатель'; }
+  .col-price { data-label: 'Сумма'; }
+  .col-fee { data-label: 'Комиссия'; }
+  .col-net { data-label: 'К выплате'; }
+  .col-status { data-label: 'Статус'; }
+  .col-date { data-label: 'Дата'; }
+  .col-actions { data-label: 'Действия'; }
+  
+  .col-actions .action-buttons {
+    justify-content: flex-end;
+    flex: 1;
+  }
+  
+  .table-footer {
+    display: none;
+  }
+}
